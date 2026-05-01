@@ -222,7 +222,7 @@ class VoxConnection:
             traceback.print_exc()
 
     def _encode_packet(self, method: int, data: VoxPayload) -> bytes:
-        header = os.urandom(6) + method.to_bytes(2, "little")
+        header = os.urandom(4) + b"\x00\x00" + method.to_bytes(2, "little")
         key = hashlib.md5(header).digest()
         body = simple_bson.dumps(data)
         ciphertext = SeedCBCEncrypt(pad(body, 16), key, VOX_IV)

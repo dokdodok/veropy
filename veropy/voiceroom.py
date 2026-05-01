@@ -593,7 +593,7 @@ class VoiceRoom(EventEmitter):
             "carrierId": config.carrier_id,
             "simOperator": config.carrier_id,
             "isRoaming": I32(0),
-            "mobileNetType": I32(13),
+            "mobileNetType": I32(config.data_net_type),
             "devInfo": VoiceRoom._build_dev_info(
                 config=config,
                 include_sub_type=True,

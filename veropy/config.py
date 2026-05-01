@@ -24,6 +24,7 @@ class VoxConfig:
     user_id: int
     device_type: DeviceType
     network: NetworkType
+    data_net_type: int
     device_lang: str
     account_country: str
     carrier_id: str
